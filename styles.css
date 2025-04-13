@@ -1,0 +1,403 @@
+:root {
+    --primary-color: #4a6ee0;
+    --primary-hover: #3658ce;
+    --secondary-color: #f5f7ff;
+    --accent-color: #f3ca2f;
+    --text-color: #333;
+    --light-text: #666;
+    --lighter-text: #999;
+    --card-bg: #fff;
+    --border-color: #e0e0e0;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --error-color: #f44336;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--light-text);
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+button:disabled {
+    background-color: var(--light-text);
+    cursor: not-allowed;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.notification {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.progress-container {
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.progress-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.results-filter {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.results-tree {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.tree-node {
+    margin-bottom: 0.5rem;
+}
+
+.tree-folder {
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.tree-folder:hover {
+    color: var(--primary-color);
+}
+
+.tree-folder-icon {
+    margin-right: 0.5rem;
+}
+
+.tree-items {
+    margin-left: 1.5rem;
+    border-left: 1px dashed var(--border-color);
+    padding-left: 0.5rem;
+}
+
+.tree-item {
+    margin: 0.25rem 0;
+}
+
+.tree-item a {
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+.tree-item a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid var(--primary-color);
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--lighter-text);
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    color: var(--light-text);
+    border-top: 1px solid var(--border-color);
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .action-buttons, .form-actions {
+        flex-direction: column;
+    }
+    
+    .progress-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+#notificationsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notification {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+    max-width: 80%;
+}
+
+.notification-info {
+    background-color: #2196F3;
+}
+
+.notification-success {
+    background-color: #4CAF50;
+}
+
+.notification-warning {
+    background-color: #FFC107;
+    color: #333;
+}
+
+.notification-error {
+    background-color: #F44336;
+}
+
+.config-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.toggle-btn {
+    padding: 5px 10px;
+    background-color: #7ccff0;
+    border: 1px solid #b3ddff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* 添加到您的CSS文件中 */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+/* 确保单个按钮也居中 */
+button {
+  margin: 0 auto;
+  display: block;
+}
+
+/* 当按钮在容器内时取消自动边距 */
+.button-container button,
+.button-group button {
+  margin: 0;
+}
+
+
+.api-processing-status {
+    position: fixed;
+    top: 90%;
+    left: 45%;
+    /* width: 100%;
+    height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    color: rgb(18, 19, 71);
+}
+
+.api-processing-status .message {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.support {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 20px; /* 调整与GitHub链接的距离 */
+}
+
+.support-qrcode {
+    display: none;
+    position: absolute;
+    top: -200px; /* 调整二维码显示的位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px; /* 调整二维码大小 */
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.support:hover .support-qrcode {
+    display: block;
+}

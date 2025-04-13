@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大模型书签整理工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>大模型书签整理工具</h1>
+            <p>使用大模型API自动对浏览器书签进行智能整理</p>
+            <p>(所有数据仅保存浏览器缓存，项目开源，不会上传相关数据)</p>
+        </header>
+
+        <main>
+            <!-- 配置区域 -->
+            <section class="config-section">
+                <div class="config-header">
+                    <h2>API配置</h2>
+                    <div class="button-container">
+                        <button id="toggleConfigBtn" class="toggle-btn">收起</button>
+                    </div>
+                </div>
+                <div id="apiConfigContent">
+                    <div class="form-group">
+                        <label for="apiKey">API密钥</label>
+                        <input type="password" id="apiKey" name="apiKey" placeholder="输入您的API密钥">
+                    </div>
+                    <div class="form-group">
+                        <label for="apiUrl">API地址</label>
+                        <input type="text" id="apiUrl" name="apiUrl" placeholder="例如: https://api.example.com/v1">
+                    </div>
+                    <div class="form-group">
+                        <label for="modelName">模型名称</label>
+                        <input type="text" id="modelName" name="modelName" placeholder="例如: gpt-3.5-turbo">
+                    </div>
+                    <div class="form-group">
+                        <label for="prompt">整理提示词</label>
+                        <textarea id="prompt" name="prompt" rows="6" placeholder="输入提示词模板..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="batchSize">批处理大小</label>
+                        <input type="number" id="batchSize" name="batchSize" min="1" max="50" value="5">
+                    </div>
+                    <div class="button-container">
+                        <div class="form-actions">
+                            <button type="button" id="saveConfig">保存配置</button>
+                            <button type="button" id="resetConfig">重置默认</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 文件处理区域 -->
+            <section class="file-section">
+                <h2>书签处理</h2>
+                <div class="card">
+                    <div class="form-group">
+                        <label for="bookmarksFile">选择书签HTML文件</label>
+                        <input type="file" id="bookmarksFile" accept=".html">
+                    </div>
+                    <div class="notification" id="resumeNotification" style="display: none;">
+                        <p>检测到未完成的处理任务，是否继续？</p>
+                        <div class="notification-actions">
+                            <button id="resumeBtn">继续上次任务</button>
+                            <button id="startNewBtn">开始新任务</button>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <div class="action-buttons">
+                            <button id="parseBtn" disabled>解析书签</button>
+                            <button id="categorizeBtn" disabled>开始整理</button>
+                            <button id="exportBtn" disabled>导出整理结果</button>
+                            <button id="resetCategorization" class="btn btn-warning">重新开始</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 进度显示区域 -->
+            <section class="progress-section">
+                <h2>处理进度</h2>
+                <div class="card">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" id="progressBar" style="width: 0%;"></div>
+                        </div>
+                        <div class="progress-info">
+                            <span id="progressText">0%</span>
+                            <span id="progressStatus">就绪</span>
+                        </div>
+                    </div>
+                    <div class="progress-details">
+                        <p>总书签数: <span id="totalBookmarks">0</span></p>
+                        <p>已处理: <span id="processedBookmarks">0</span></p>
+                        <p>当前状态: <span id="currentStatus">未开始</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 整理结果预览 -->
+            <section class="results-section">
+                <h2>整理结果预览</h2>
+                <div class="card">
+                    <div class="results-filter">
+                        <input type="text" id="categoryFilter" placeholder="过滤类别...">
+                        <select id="categorySelect">
+                            <option value="all">所有类别</option>
+                        </select>
+                    </div>
+                    <div class="results-tree" id="resultsTree">
+                        <div class="loading" id="resultsLoading" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>加载中...</p>
+                        </div>
+                        <div class="empty-state" id="emptyResults">
+                            <p>无整理结果</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 大模型书签整理工具 | <a href="https://github.com/we-worker/bookmark-Zen" target="_blank">GitHub</a>
+            <span class="support">
+                求支持
+                <img src="./Doc/money.png" alt="打赏一下" class="support-qrcode">
+            </span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- 加载JavaScript文件 -->
+    <script src="js/storage.js"></script>
+    <script src="js/parser.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
