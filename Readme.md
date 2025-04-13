@@ -20,7 +20,7 @@ Bookmark Zen 是一个基于人工智能的浏览器书签分类整理工具，�
 
 ## 如何使用 ![Usage](https://img.shields.io/badge/How-to-Use)
 
-1. 在线使用网址：https://we-worker/
+1. 在线使用网址：https://we-worker.github.io/bookmark-Zen
    
 2. **配置API**：
    - 输入您的API密钥
