@@ -9,9 +9,9 @@
 <body>
     <div class="container">
         <header>
-            <h1>大模型书签整理工具</h1>
+            <h1>大模型书签整理工具 | Bookmark-Zen</h1>
             <p>使用大模型API自动对浏览器书签进行智能整理</p>
-            <p>(所有数据仅保存浏览器缓存，项目开源，不会上传相关数据)</p>
+            <p>(所有数据仅保存浏览器缓存，项目<a href="https://github.com/we-worker/bookmark-Zen" target="_blank">开源</a>，不会上传相关数据)</p>
         </header>
 
         <main>
@@ -41,8 +41,8 @@
                         <textarea id="prompt" name="prompt" rows="6" placeholder="输入提示词模板..."></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="batchSize">批处理大小</label>
-                        <input type="number" id="batchSize" name="batchSize" min="1" max="50" value="5">
+                        <label for="batchSize">每批整理数量</label>
+                        <input type="number" id="batchSize" name="batchSize" min="1" max="1000" value="5">
                     </div>
                     <div class="button-container">
                         <div class="form-actions">
